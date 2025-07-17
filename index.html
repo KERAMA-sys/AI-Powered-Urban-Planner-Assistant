@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Urban Planning Assistant – Integrated Models</title>
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Leaflet Draw -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
+    <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+    <!-- Leaflet Geocoder -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <!-- Leaflet-Geosearch (Autocomplete) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.1.0/assets/css/leaflet.css" />
+    <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/bundle.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+    <div id="map"></div>
+   
+    <div id="results-panel">
+        <h2>Area Analysis</h2>
+        <div class="loading-indicator" id="loading">
+            <div class="spinner"></div>
+            Analyzing area...
+        </div>
+       
+        <div id="results-content">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="zoning">Zoning</button>
+                <button class="tab-button" data-tab="air">Air Quality</button>
+                <button class="tab-button" data-tab="traffic">Traffic</button>
+                <button class="tab-button" data-tab="features">Features</button>
+            </div>
+           
+            <div class="tab-content active" id="zoning-tab">
+                <div class="section">
+                    <h3>Recommended Zoning</h3>
+                    <p id="zoning-value" class="highlight-value">-</p>
+                </div>
+               
+                <div class="section">
+                    <h3>Improvement Suggestions</h3>
+                    <ul id="suggestions-list"></ul>
+                </div>
+            </div>
+           
+            <div class="tab-content" id="air-tab">
+                <div class="section">
+                    <h3>Air Quality Prediction</h3>
+                    <div id="air-quality-results">
+                        <p>No data available</p>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="tab-content" id="traffic-tab">
+                <div class="section">
+                    <h3>Traffic Prediction</h3>
+                    <div id="traffic-results">
+                        <p>No data available</p>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="tab-content" id="features-tab">
+                <div class="section">
+                    <h3>Area Features</h3>
+                    <div id="features-list" class="feature-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

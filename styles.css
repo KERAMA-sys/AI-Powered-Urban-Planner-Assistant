@@ -1,0 +1,263 @@
+
+/* Main layout */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+}
+
+#map {
+    flex: 2;
+    height: 100%;
+}
+
+#results-panel {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    display: none;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    opacity: 0.7;
+    font-weight: normal;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-button.active {
+    opacity: 1;
+    font-weight: bold;
+    border-bottom: 3px solid #4285f4;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Section styles */
+.section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+h3 {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.highlight-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4285f4;
+}
+
+/* Lists */
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* Feature list */
+.feature-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.feature-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.feature-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.feature-value {
+    color: #333;
+}
+
+/* Custom pin */
+.custom-pin {
+    background-color: #4285f4;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    width: 22px !important;
+    height: 40px !important;
+    position: relative;
+}
+
+.custom-pin:after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    position: absolute;
+    border-radius: 50%;
+    top: 8px;
+    left: 4px;
+}
+
+/* Loading indicator */
+.loading-indicator {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+    color: #666;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #4285f4;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error message */
+.error-message {
+    padding: 15px;
+    background-color: #fde8e8;
+    border: 1px solid #f8acac;
+    border-radius: 5px;
+    color: #b71c1c;
+}
+
+/* Air quality and traffic styles */
+.air-quality-card, .traffic-card {
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+}
+
+.aqi-value, .traffic-value {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.aqi-label, .traffic-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.aqi-category {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* AQI and traffic color classes */
+.good {
+    background-color: #a8e05f;
+    color: #2a7d1b;
+}
+
+.moderate {
+    background-color: #ffd733;
+    color: #8d7200;
+}
+
+.sensitive {
+    background-color: #ffb347;
+    color: #b25000;
+}
+
+.unhealthy {
+    background-color: #ff6b6b;
+    color: #b71c1c;
+}
+
+.very-unhealthy {
+    background-color: #a97bc3;
+    color: #4a148c;
+}
+
+.hazardous {
+    background-color: #a06a7b;
+    color: #641e16;
+}
+
+.unknown {
+    background-color: #cccccc;
+    color: #666666;
+}
+
+/* Pollutant and metrics grids */
+.pollutant-grid, .metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.pollutant-item, .metric-item {
+    background-color: #f9f9f9;
+    padding: 8px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pollutant-name, .metric-name {
+    font-size: 12px;
+    color: #666;
+}
+
+.pollutant-value, .metric-value {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.no-data {
+    color: #999;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+            
